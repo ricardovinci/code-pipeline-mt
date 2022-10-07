@@ -7,7 +7,7 @@ function App() {
   
   return (
    <div className="center">
-      <h1>My app here</h1>
+      <h1>Corinthias 1000 grau</h1>
 
    </div>
   );
