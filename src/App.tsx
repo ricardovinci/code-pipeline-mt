@@ -1,19 +1,14 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-// import *.jpg from './assets';
-
-
 
 function App() {
 
   interface Person {
     name: string;
     image: string;
+    apelido?:string;
   }
-
-
 
   const [personList, setPersonList] = useState<Array<Person>>();
   const [selectedPerson, setSelectedPerson] = useState<Person>();
@@ -22,7 +17,7 @@ function App() {
     console.log("Calling use Effect");
     //initiating personlist array
     let personList: Person[] = [
-      { name: "Diego", image: "1.jpg" },
+      { name: "Diego", image:"1.jpg", apelido:"Fro"},
       { name: "Ricardo", image: "2.jpg" },
       { name: "Sofia", image: "3.jpg" },
       { name: "Camila", image: "4.jpg" },
@@ -43,26 +38,6 @@ function App() {
     setSelectedPerson(personList?.at(randomPos));
   };
 
-  // useEffect(() => {
-  //   if (clickA === 0) {
-  //     console.log('Component loaded!')
-  //   } else {
-  //     console.log('Button A was clicked!');
-  //   }
-  // }, [clickA]);
-
-  // const Child = ({ name, id, bio = 'Bio empty' }) => {
-  //   return (
-  //     <div>
-  //       <h2>Name: {name}, Id: {id}</h2>
-  //       <p>{bio}</p>
-  //     </div>
-  //   )
-  // };
-
-
-
-
   return (
     <div className="container">
       <div>
@@ -79,6 +54,7 @@ function App() {
         {selectedPerson ?
           <h1>
             Parabens {selectedPerson?.name}!
+             {selectedPerson.apelido ? 'AKA '+ selectedPerson?.apelido:null}
           </h1>
           : null}
 
